@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nonlinear Diffusion Filtering (Perona–Malik)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Nonlinear Diffusion Filtering</h1>
+        <p>Perona–Malik model with multiple diffusivity functions and a color extension.</p>
+    </header>
+
+    <section>
+        <h2>Problem Summary</h2>
+        <p>
+            The goal is to denoise images while preserving edges using nonlinear diffusion.
+            Starting from the linear heat equation <code>∂u/∂t = Δu</code>, the Perona–Malik
+            model replaces the constant diffusivity with an edge-aware function
+            <code>g(|∇u|)</code> to inhibit diffusion across strong gradients.
+        </p>
+    </section>
+
+    <section>
+        <h2>Implemented Methods</h2>
+        <ul>
+            <li>Linear diffusion (heat equation) as a baseline.</li>
+            <li>Nonlinear diffusion with three diffusivities:
+                <ul>
+                    <li>PM1: <code>g(|x|) = exp(-|x|^2 / λ^2)</code></li>
+                    <li>PM2: <code>g(|x|) = 1 / (1 + |x|^2 / λ^2)</code></li>
+                    <li>Charbonnier: <code>g(|x|) = 1 / sqrt(1 + |x|^2 / λ^2)</code></li>
+                </ul>
+            </li>
+            <li>Color extension using a shared diffusivity based on the sum of channel gradient magnitudes:
+                <code>∂u_i/∂t = ∇·( g( Σ_k |∇u_σ_k| ) ∇u_i )</code>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Experimental Results</h2>
+        <figure>
+            <figcaption>Grayscale comparison (Original vs Linear vs PM1/PM2/Charbonnier)</figcaption>
+            <img src="results/comparison_grayscale.png" alt="Grayscale comparison">
+        </figure>
+        <figure>
+            <figcaption>Statistics for PM1</figcaption>
+            <img src="plots/statistics_pm1.png" alt="Statistics PM1">
+        </figure>
+        <figure>
+            <figcaption>Lambda sweep (PM1)</figcaption>
+            <img src="plots/lambda_comparison_pm1.png" alt="Lambda comparison">
+        </figure>
+        <figure>
+            <figcaption>Sigma sweep (PM1)</figcaption>
+            <img src="plots/sigma_comparison_pm1.png" alt="Sigma comparison">
+        </figure>
+        <figure>
+            <figcaption>Color diffusion result (PM1)</figcaption>
+            <img src="results/color_diffusion_result.png" alt="Color diffusion result">
+        </figure>
+        <figure>
+            <figcaption>Color diffusion statistics</figcaption>
+            <img src="plots/color_diffusion_statistics.png" alt="Color statistics">
+        </figure>
+    </section>
+
+    <section>
+        <h2>Discussion and Observations</h2>
+        <p>
+            Linear diffusion blurs edges uniformly. Nonlinear diffusivities slow diffusion near
+            edges (where <code>|∇u|</code> is large), preserving boundaries while reducing noise in flat regions.
+            PM1 is stronger at edge preservation for large gradients, PM2 is smoother and less aggressive,
+            and Charbonnier offers a gentle transition. The color extension couples channels through the
+            shared diffusivity computed from all channel gradients, helping keep chromatic edges aligned.
+        </p>
+    </section>
+
+    <section>
+        <h2>Conclusion</h2>
+        <p>
+            Nonlinear diffusion offers a controllable trade-off between denoising and edge preservation.
+            The choice of diffusivity function and parameters (λ, σ, step size, iterations) governs the
+            balance between smoothing and detail retention.
+        </p>
+    </section>
+
+    <section>
+        <h2>References</h2>
+        <ul>
+            <li>P. Perona and J. Malik, “Scale-space and edge detection using anisotropic diffusion,” IEEE TPAMI, 1990.</li>
+            <li>P. Charbonnier et al., “Deterministic edge-preserving regularization in computed imaging,” ICIP, 1994.</li>
+            <li>J. Weickert, “Anisotropic Diffusion in Image Processing,” Teubner, 1998.</li>
+        </ul>
+    </section>
+</body>
+</html>

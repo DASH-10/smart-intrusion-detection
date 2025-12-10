@@ -1,0 +1,60 @@
+2025-12-03 17:02:00,926 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 17:02:01,481 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 17:02:02,022 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 17:04:03,392 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 17:04:27,350 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 17:04:27,645 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 17:04:31,326 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 17:05:16,882 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 17:13:34,578 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 17:13:34,857 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 17:13:38,152 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 17:23:04,665 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 18:36:11,254 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 18:36:11,536 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 18:36:14,971 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 18:38:34,275 [INFO] smart_intrusion_detection: Video stream ended or failed to grab frame.
+2025-12-03 18:38:34,378 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 18:43:31,192 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 18:43:31,468 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 18:43:34,918 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 18:44:27,871 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 18:49:53,206 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 18:49:53,476 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 18:49:56,802 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 18:51:22,561 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 18:54:29,047 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 18:54:29,323 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 18:54:32,648 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 18:54:57,705 [INFO] smart_intrusion_detection: Video stream ended or failed to grab frame.
+2025-12-03 18:54:57,773 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 18:55:06,862 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 18:55:07,136 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 18:55:07,511 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 18:55:12,782 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 19:19:47,430 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 19:19:47,688 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 19:19:50,800 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 19:21:51,051 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 19:34:31,605 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 19:34:31,932 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 19:34:35,061 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 19:35:13,218 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 19:36:42,373 [INFO] smart_intrusion_detection.zones: Loaded 1 zone(s).
+2025-12-03 19:36:42,644 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 19:36:45,812 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 19:37:21,986 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 19:39:28,136 [INFO] smart_intrusion_detection.zones: Loaded 0 zone(s).
+2025-12-03 19:39:28,398 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 19:39:31,522 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 19:40:27,142 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 19:44:11,052 [WARNING] smart_intrusion_detection.open_vocab: GroundingDINO is not installed; open-vocabulary detection will be disabled.
+2025-12-03 19:44:11,052 [INFO] smart_intrusion_detection.zones: Loaded 0 zone(s).
+2025-12-03 19:44:11,320 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 19:44:14,436 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 19:44:32,854 [INFO] smart_intrusion_detection: Shutdown complete.
+2025-12-03 20:16:51,887 [WARNING] smart_intrusion_detection.open_vocab: GroundingDINO is not installed; open-vocabulary detection will be disabled.
+2025-12-03 20:16:51,887 [INFO] smart_intrusion_detection.zones: Loaded 0 zone(s).
+2025-12-03 20:16:52,196 [WARNING] smart_intrusion_detection: Unable to open source 'C:\Users\pc\OneDrive\Documents\my_projects\smart_intrusion_detection\data\videos\example.mp4', falling back to webcam 0.
+2025-12-03 20:16:55,741 [INFO] smart_intrusion_detection: Starting loop. Press 'q' to exit.
+2025-12-03 20:17:26,726 [INFO] smart_intrusion_detection: Shutdown complete.
