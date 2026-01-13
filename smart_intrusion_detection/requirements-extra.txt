@@ -1,5 +1,8 @@
-# Optional extras (install manually when you need them)
-# GroundingDINO open-vocabulary detector
+# Optional extras (install only if you enable these features)
+# Install: pip install -r requirements-extra.txt
+# GroundingDINO open-vocabulary detector (requires model files downloaded separately)
+# - Download GroundingDINO_SwinT_OGC.py and groundingdino_swint_ogc.pth from the GroundingDINO repo/releases
+# - Place them in models/groundingdino/ or set GROUNDINGDINO_CONFIG_PATH / GROUNDINGDINO_CHECKPOINT_PATH
 groundingdino
 
 # Advanced trackers

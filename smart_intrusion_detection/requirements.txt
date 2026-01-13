@@ -1,3 +1,12 @@
+# Install (CPU-only): pip install -r requirements.txt
+# Install (CUDA 11.8 example):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+#   pip install -r requirements.txt
+# YOLOv8 weights are required at runtime:
+# - Auto-downloads on first run via Ultralytics, or
+# - Download from Ultralytics release assets and place `yolov8s.pt` (or `yolov8n.pt`) in the project root.
+torch>=2.0.0
+torchvision>=0.15.0
 ultralytics>=8.0.0
 opencv-python>=4.8.0
 numpy>=1.24.0

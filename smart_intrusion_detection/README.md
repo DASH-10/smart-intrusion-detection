@@ -1,3 +1,18 @@
+# Smart Intrusion and Suspicious Behavior Detection in Restricted Zones Using Deep Learning
+
+This project was prepared as part of the Machine Learning and Image Processing courses.
+The aim of the project is to design and implement an intelligent security system using deep learning–based computer vision techniques for intrusion and suspicious behavior detection in restricted zones.
+
+Course Instructor:
+Dr. Öğr. Üyesi Ramin ABBASZADI
+
+Prepared by:
+Omar A. M. Issa – 220212901
+
+Department: Artificial Intelligence Engineering
+University: OSTİM Teknik Üniversitesi
+Academic Term: 2024–2025 Fall Semester
+
 # Smart Intrusion & Suspicious Behavior Detection
 
 Real-time, desktop-only surveillance that combines pre-trained YOLO detections, OpenCV processing, and AI behavior logic to flag intrusions and suspicious dwell time. Runs locally with GPU acceleration (CUDA/FP16) when available; no browser or cloud pieces.
@@ -42,6 +57,22 @@ Video Input
 - Enable by setting `ModelConfig.model_type = "open_vocab"` in `config.py` (default prompts: person, door, window). Disable at runtime with `--disable-open-vocab`.
 - Place weights/config at `models/groundingdino/GroundingDINO_SwinT_OGC.py` and `models/groundingdino/groundingdino_swint_ogc.pth`, or override the paths in `ModelConfig`.
 - Control cadence with `open_vocab_every_n_frames` (default 10) or `--open-vocab-every N`; detections are cached between runs to save FPS.
+
+## What you need to run the code
+- Python 3.9+ with `pip` and `venv`.
+- Desktop OS with a display (OpenCV window) and a webcam or a video file to analyze.
+- Required Python packages:
+  - PyTorch + torchvision (CPU or CUDA build). See the GPU / CUDA section for CUDA install command.
+  - Ultralytics YOLOv8 (`ultralytics`)
+  - `opencv-python`, `numpy`, `scikit-learn`
+- YOLOv8 weights file (required for detection): `yolov8s.pt` (default) or `yolov8n.pt`.
+  - If the file is missing, Ultralytics will auto-download it on first run (needs internet).
+  - Manual: download the YOLOv8 weights from the Ultralytics release assets and place the `.pt` file in the project root, or update `ModelConfig.weights`.
+- NVIDIA GPU users: install a recent NVIDIA driver that matches your CUDA-enabled PyTorch wheel.
+- Optional extras (only if you enable these features):
+  - GroundingDINO open-vocabulary: `pip install groundingdino` (or `pip install -r requirements-extra.txt`), then download `GroundingDINO_SwinT_OGC.py` and `groundingdino_swint_ogc.pth` from the GroundingDINO repo/release and put them in `models/groundingdino/` (or set `GROUNDINGDINO_CONFIG_PATH` / `GROUNDINGDINO_CHECKPOINT_PATH`).
+  - DeepSORT tracking: `pip install deep-sort-realtime` and `pip install lap`.
+  - ByteTrack tracking: install `lap` and Ultralytics tracking extras (falls back to centroid if missing).
 
 ## Installation
 ```bash
@@ -109,3 +140,6 @@ models/               # pre-trained weights (YOLO, GroundingDINO)
 - Shows production-style architecture: detection -> tracking -> zone/behavior logic -> structured event outputs.
 - Suitable for university evaluation and AI engineer portfolios where system design and real-time performance matter.
 - Desktop-local workflow (no web UI or cloud services), highlighting privacy-preserving intelligent surveillance.
+
+
+py -m smart_intrusion_detection.main --source 0
