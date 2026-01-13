@@ -13,17 +13,20 @@ VIDEO_SOURCE = 0  # default to webcam index 1 (change if needed)
 @dataclass
 class ModelConfig:
     model_type: str = "yolo"  # "yolo" or "open_vocab"
-    weights: str = "yolov8n.pt"
-    conf_threshold: float = 0.35
-    iou_threshold: float = 0.45
-    imgsz: int = 640
-    device: Optional[str] = None
-    allowed_classes: Optional[Sequence[int]] = None
+    weights: str = "yolov8s.pt"
+    conf_threshold: float = 0.25
+    iou_threshold: float = 0.50
+    imgsz: int = 768
+    device: Optional[str] = "cuda:0"
+    use_fp16: bool = True
+    cudnn_benchmark: bool = True
+    allowed_classes: Optional[Sequence[int]] = field(default_factory=lambda: [0])
     source: Union[str, int] = "data/videos/example.mp4"
     # Open-vocabulary options (used when model_type == "open_vocab").
     open_vocab_prompts: List[str] = field(default_factory=lambda: ["person", "door", "window"])
     open_vocab_box_threshold: float = 0.25
     open_vocab_text_threshold: float = 0.25
+    open_vocab_every_n_frames: int = 10
     # Provide defaults you can replace with real paths to GroundingDINO config/weights.
     open_vocab_config_path: Optional[PathLike] = "models/groundingdino/GroundingDINO_SwinT_OGC.py"
     open_vocab_checkpoint_path: Optional[PathLike] = "models/groundingdino/groundingdino_swint_ogc.pth"
@@ -39,6 +42,7 @@ class ZoneConfig:
 
 @dataclass
 class TrackerConfig:
+    tracker_type: str = "centroid"  # centroid, deepsort, bytetrack
     max_age: int = 30
     max_distance: float = 80
 
@@ -47,6 +51,16 @@ class TrackerConfig:
 class BehaviorConfig:
     dwell_time_seconds: float = 5.0
     cooldown_seconds: float = 10.0
+
+
+@dataclass
+class AnomalyConfig:
+    enable_ml_anomaly: bool = True
+    anomaly_threshold: float = 0.65
+    contamination: float = 0.05
+    refit_every_n_frames: int = 300
+    window_size_frames: int = 60
+    min_samples_before_scoring: int = 30
 
 
 @dataclass
@@ -66,7 +80,10 @@ class AppConfig:
     door_window_zones: List[ZoneConfig] = field(default_factory=list)
     tracker: TrackerConfig = field(default_factory=TrackerConfig)
     behavior: BehaviorConfig = field(default_factory=BehaviorConfig)
+    anomaly: AnomalyConfig = field(default_factory=AnomalyConfig)
     output: OutputConfig = field(default_factory=OutputConfig)
+    display_scale: float = 1.8
+    skip_frames: int = 0
 
 
 def _default_zones() -> List[ZoneConfig]:

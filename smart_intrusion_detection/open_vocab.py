@@ -5,6 +5,8 @@ import os
 from pathlib import Path
 from typing import Dict, List
 
+import torch
+
 from .config import ModelConfig
 
 try:
@@ -19,7 +21,17 @@ class OpenVocabDetector:
     def __init__(self, cfg: ModelConfig):
         self.cfg = cfg
         self.logger = logging.getLogger(__name__)
+        self.device = self._select_device()
         self.model = self._load_model()
+        self._last_detections: List[Dict] = []
+        self._last_frame_index: int = -1
+
+    def _select_device(self) -> str:
+        requested = self.cfg.device or ("cuda:0" if torch.cuda.is_available() else "cpu")
+        if requested.startswith("cuda") and not torch.cuda.is_available():
+            self.logger.warning("CUDA requested for open-vocab but not available; using CPU.")
+            return "cpu"
+        return requested
 
     def _load_model(self):
         if GroundingDINOModel is None:
@@ -42,7 +54,7 @@ class OpenVocabDetector:
             return GroundingDINOModel(
                 model_config_path=config_path,
                 model_checkpoint_path=checkpoint_path,
-                device=self.cfg.device or "cpu",
+                device=self.device or "cpu",
             )
         except Exception as exc:
             self.logger.error("Failed to load GroundingDINO: %s", exc)
@@ -92,9 +104,22 @@ class OpenVocabDetector:
                     "score": float(score),
                     "class_id": -1,
                     "class_name": str(label),
+                    "category": "object",
                 }
             )
         return detections
+
+    def detect_cached(self, frame, frame_index: int, every_n: int) -> List[Dict]:
+        """Cache detections; only run the model every_n frames."""
+        if self.model is None:
+            self._last_detections = []
+            return []
+
+        interval = max(1, int(every_n))
+        if self._last_frame_index < 0 or frame_index % interval == 0:
+            self._last_detections = self.detect(frame)
+            self._last_frame_index = frame_index
+        return list(self._last_detections)
 
     # Backwards compatibility with Detector.predict
     def predict(self, frame) -> List[Dict]:

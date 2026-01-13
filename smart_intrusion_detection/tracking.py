@@ -16,6 +16,10 @@ class Track:
     bbox: Tuple[int, int, int, int]
     label: str
     score: float
+    category: Optional[str] = None
+    class_name: Optional[str] = None
+    zone_id: Optional[str] = None
+    zone_name: Optional[str] = None
     zone_ids: List[str] = field(default_factory=list)
 
 
@@ -74,6 +78,10 @@ class CentroidTracker:
             "centroid": _centroid(detection["bbox"]),
             "label": detection.get("class_name", str(detection.get("class_id", ""))),
             "score": detection["score"],
+            "category": detection.get("category"),
+            "class_name": detection.get("class_name"),
+            "zone_id": detection.get("zone_id"),
+            "zone_name": detection.get("zone_name"),
             "age": 0,
             "last_seen": self._frame_index,
         }
@@ -86,6 +94,10 @@ class CentroidTracker:
                 "centroid": _centroid(detection["bbox"]),
                 "label": detection.get("class_name", str(detection.get("class_id", ""))),
                 "score": detection["score"],
+                "category": detection.get("category"),
+                "class_name": detection.get("class_name"),
+                "zone_id": detection.get("zone_id"),
+                "zone_name": detection.get("zone_name"),
                 "age": 0,
                 "last_seen": self._frame_index,
             }
@@ -98,4 +110,8 @@ class CentroidTracker:
             bbox=state["bbox"],
             label=state["label"],
             score=state["score"],
+            category=state.get("category"),
+            class_name=state.get("class_name"),
+            zone_id=state.get("zone_id"),
+            zone_name=state.get("zone_name"),
         )

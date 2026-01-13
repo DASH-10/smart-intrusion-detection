@@ -1,0 +1,7 @@
+# Optional extras (install manually when you need them)
+# GroundingDINO open-vocabulary detector
+groundingdino
+
+# Advanced trackers
+deep-sort-realtime>=1.3.2
+lap>=0.5.12  # dependency for deep-sort-realtime/ByteTrack in Ultralytics
